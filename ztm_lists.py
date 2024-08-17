@@ -1,5 +1,5 @@
 
-"""Module providing a function printing python version."""
+"""This is a reference script for learning python"""
 # Lists
 
 li = [1, 2, 3, 4, 5]
