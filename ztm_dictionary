@@ -1,6 +1,8 @@
+"""Example on how to use a dictionary and types of data you can add into it"""
+
 # Dictionary
 
-name = """ Thsi is a test to add some text
+NAME = """ Thsi is a test to add some text
 
 I want to make multiple lines
 
@@ -12,7 +14,7 @@ thanks
 bye
 """
 
-art = """
+ART = """
      /   __/     /   __/     /   __/     /   __/     /   __/     /   _
 __   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/ 
   \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \
@@ -38,12 +40,12 @@ __/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__
   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \_
 """
 
-dictionary = {"a": 1, "b": 2, "z": 3, 4: False, 5: name}, {
+dictionary = {"a": 1, "b": 2, "z": 3, 4: False, 5: NAME}, {
     "x": 1,
     "y": 2,
     3: 300 * 2,
     False: 4,
-    9: art,
+    9: ART,
 }
 
 print(dictionary[0][5])
