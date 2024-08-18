@@ -1,5 +1,5 @@
-
 """This is a reference script for learning python"""
+
 # Lists
 
 li = [1, 2, 3, 4, 5]
@@ -22,3 +22,14 @@ new_cart = amazon_cart[:]
 new_cart[0] = "gum"
 print(new_cart)
 print(amazon_cart)
+
+
+# List Unpacking
+
+a, b, c, *other, d = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(a)
+print(b)
+print(c)
+print(other)
+print(d)
