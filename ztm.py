@@ -1,297 +1,470 @@
-"""Reference script"""
+"""
+Ultimate Python Cheat Sheet
 
-# Operator Precedence
+This script provides a comprehensive overview of Python basics and advanced topics,
+including data types, control flow, functions, error handling, file I/O, OOP,
+concurrency, and more. Each section is commented to explain the process in detail.
 
-# () - Parenthases
-# ** - Exponents
-# * / - Multiplication and Division
-# + - - Addition and Subtraction
+For more detailed explanations, refer to the official Python documentation:
+https://docs.python.org/3/
+"""
 
-# PEMDAS
+# Table of Contents
+"""
+1. Basic Syntax and Operations
+    - Operator Precedence
+2. Data Types
+    - Integer, Float, Complex, String, List, Tuple, Set, Dictionary
+3. Variables and Constants
+4. Control Flow
+    - Conditional Statements, Loops
+5. Functions and Modules
+6. Error Handling
+7. File I/O
+8. Object-Oriented Programming (OOP)
+9. Libraries and Packages
+10. Advanced Data Structures
+11. Concurrency and Parallelism
+"""
 
-print(20 - 3 * 4)  # 8
-print((20 - 3) * 4)  # 68
-print(20 / 4 * 5)  # 25
-print(20 * 4 / 5)  # 16
-print(20 // 4 * 5)  # 25
-print(20 * 4 // 5)  # 16
+# 1. Basic Syntax and Operations
+"""
+Python uses operator precedence to determine the order of operations in an expression.
+This follows the PEMDAS rule: Parentheses, Exponents, Multiplication and Division,
+Addition and Subtraction. Understanding operator precedence is essential for writing
+correct expressions.
 
-# Guess the output of each answer before you click RUN
+Refer to the documentation for more details:
+https://docs.python.org/3/reference/expressions.html#operator-precedence
+"""
 
-print((5 + 4) * 10 / 2)
-print(((5 + 4) * 10) / 2)
-print((5 + 4) * (10 / 2))
-print(5 + (4 * 10) / 2)
-print(5 + 4 * 10 // 2)
+# Operator Precedence Examples
+print((3 + 2) * 5)  # (3 + 2) is evaluated first to 5, then 5 * 5 = 25
+print(2**3)  # Exponentiation: 2^3 = 8
+print(
+    4 * 3 / 2
+)  # Multiplication and division are left-associative: 4 * 3 = 12, 12 / 2 = 6.0
+print(
+    10 + 5 - 3
+)  # Addition and subtraction are left-associative: 10 + 5 = 15, 15 - 3 = 12
+print(
+    10 + 2 * 3**2
+)  # Exponentiation first: 3 ** 2 = 9, then multiplication: 2 * 9 = 18, finally addition: 10 + 18 = 28
 
-# Complex Data Types
+# 2. Data Types
+"""
+Python supports several built-in data types: int, float, complex, str, list, tuple, set, and dict.
 
-# int - Integer
-# float - Floating Point Number
-# complex - Complex Number
-# bin - Binary Number
+Learn more about Python's data types:
+https://docs.python.org/3/library/stdtypes.html
+"""
 
-print(bin(5))
-print(int("0b101", 2))
+# Integer
+age = 25  # Integer type
+print(age)
 
-# Variables
+# Float
+height = 5.9  # Float type for decimal numbers
+print(height)
 
-# Variables are ways to store information in our programs.
+# Complex Number
+complex_num = 3 + 4j  # Complex numbers have a real and imaginary part
+print(complex_num)
+print(complex_num.real)  # Accessing the real part
+print(complex_num.imag)  # Accessing the imaginary part
 
-iq = 190
-print(iq)
-user_iq = 190
-print(user_iq)
+# String
+text = "Hello, World!"  # Strings are sequences of characters
+print(text)
 
-# Varialbes can be reassigned
+# List
+numbers = [1, 2, 3, 4, 5]  # Lists are ordered, mutable sequences
+print(numbers)
 
-user_age = iq / 4
-print(user_age)
+# Tuple
+coordinates = (10.0, 20.0)  # Tuples are ordered, immutable sequences
+print(coordinates)
+
+# Set
+unique_numbers = {1, 2, 3, 2, 1}  # Sets are unordered collections of unique elements
+print(unique_numbers)
+
+# Dictionary
+student = {
+    "name": "John",
+    "age": 20,
+    "major": "Computer Science",
+}  # Dictionaries store key-value pairs
+print(student)
+
+# 3. Variables and Constants
+"""
+Variables are used to store data that can be modified. Constants are values that do not change.
+
+More on Python variables:
+https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator
+"""
+
+# Variable Assignment
+name = "Alice"
+print(name)
+
+# Variable Reassignment
+age = 30
+print(age)
+age = 31
+print(age)
 
 # Constants
+PI = 3.14159  # Constants are typically written in uppercase
+print(PI)
 
-PI = 3.14
-
-# Dunder Variables
-
-# __
-
-# Augmented Assignment Operator
-
-some_value = 5
-some_value += 2
-print(some_value)
-
-# Strings
-
-print(type("hi hello there"))
-username = "supercoder"
-password = "supersecret"
-long_string = """
-WOW
-0 0
----
+# 4. Control Flow
 """
-print(long_string)
-first_name = "Jon"
-last_name = "Snow"
-full_name = first_name + " " + last_name
-print(full_name)
+Control flow includes conditional statements and loops, which allow for decision-making
+and repetition in your code.
 
-# String Concatenation
+Read more on control flow:
+https://docs.python.org/3/tutorial/controlflow.html
+"""
 
-print("hello" + " Jon")
+# Conditional Statements
+x = 10
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")
 
-# Type Conversion
+# Loops
 
-print(type(str(100)))
-print(type(int(str(100))))
+# For Loop
+for i in range(5):
+    print(i)  # Iterates from 0 to 4
 
-# Escape Sequence
+# While Loop
+i = 0
+while i < 5:
+    print(i)  # Iterates while i < 5
+    i += 1  # Increments i by 1 each iteration
 
-weather = 'It\'s "kind of" sunny'
-print(weather)
-weather = '\t It\'s "kind of" sunny'
-print(weather)
-weather = '\t It\'s "kind of" sunny \n hope you have a good day!'
-print(weather)
+# 5. Functions and Modules
+"""
+Functions are blocks of code that perform specific tasks. Modules are files containing Python code
+that can be imported into other Python scripts.
 
-# Formatted Strings
+Explore more about functions and modules:
+- Functions: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+- Modules: https://docs.python.org/3/tutorial/modules.html
+"""
 
-name = "Johnny"
-age = 55
 
-print("Hi " + name + ". You are " + str(age) + " years old.")
-print(f"Hi {name}. You are {age} years old.")
-print("Hi {}. You are {} years old.".format("Johnny", "55"))
-print("Hi {}. You are {} years old.".format(name, age))
-print("Hi {1}. You are {0} years old.".format(name, age))
-print("Hi {new_name}. You are {age} years old.".format(new_name="Sally", age=100))
+# Function Definition
+def greet(name):
+    """
+    Function to greet a person by name.
 
-# String Indexes
+    Args:
+        name (str): The name of the person.
 
-# Indexing is the process of accessing a specific character in a string.
-# Indexing starts at 0.
-# The first character in a string is at index 0.
-# The second character in a string is at index 1.
+    Returns:
+        str: Greeting message.
+    """
+    return f"Hello, {name}!"
 
-selfish = "abcdefgh"
-#          01234567
-print(selfish[0])
-print(selfish[7])
-print(selfish[4])
-print(selfish)
 
-selfish = "01234567"
-#          01234567
+print(greet("Alice"))
 
-# [start:stop]
-# The stop index is not included in the slice.
 
-print(selfish[0:2])
-print(selfish[0:7])
-print(selfish[0:8])
+# Function with Default Arguments
+def add(a, b=5):
+    """
+    Adds two numbers, with a default value for the second number.
 
-# [start:stop:stepover]
-# The stepover is the number of characters to skip
+    Args:
+        a (int or float): The first number.
+        b (int or float, optional): The second number. Defaults to 5.
 
-print(selfish[0:8:1])
-print(selfish[0:8:2])
-print(selfish[1:])
-print(selfish[:5])
-print(selfish[::1])
-print(selfish[-1])
-print(selfish[-2])
-print(selfish[::-1])
-print(selfish[::-2])
+    Returns:
+        int or float: The sum of a and b.
+    """
+    return a + b
 
-# Immutability
 
-selfish = "01234567"
-# Strings are immutable
-# selfish[0] = '8'
-# selfish = '8'
+print(add(3))  # Uses default value for b
+print(add(3, 4))  # Overrides default value for b
 
-# Built-In Functions + Methods
+# Importing Modules
+import math
 
-print(len("hello"))
-greet = "hello"
-print(greet[0 : len(greet)])
-quote = "to be or not to be"
-print(quote.upper())
-print(quote.capitalize())
-print(quote.find("be"))
-print(quote.replace("be", "me"))
-print(quote)
+print(math.sqrt(16))  # Uses the math module to compute the square root of 16
 
-# Booleans
+# 6. Error Handling
+"""
+Error handling in Python is done using try, except, finally, and raise keywords to manage exceptions
+and ensure proper execution of code.
 
-name = "Jon"
-is_cool = False
-is_cool = True
-print(bool(1))
-print(bool(0))
-print(bool("True"))
+Learn more about error handling:
+https://docs.python.org/3/tutorial/errors.html
+"""
 
-# Exercise: Type Conversion
+# Try-Except Block
+try:
+    result = 10 / 0  # This will cause a ZeroDivisionError
+except ZeroDivisionError:
+    print("Cannot divide by zero!")  # Catches the exception and prints an error message
 
-name = "Jon Snow"
-age = 50
-relationship_status = "single"
-relationship_status = "it's complicated"
-print(relationship_status)
-birth_year = input("what year were you born?")
-age = 2023 - int(birth_year)
-print(f"your age is: {age}")
+# Finally Block
+try:
+    file = open("example.txt", "r")  # Attempts to open a file for reading
+finally:
+    file.close()  # Ensures the file is closed after the operation, even if an error occurs
 
-# Exercise: Password Checker
 
-username = input("what is your username?")
-password = input("what is your password?")
-password_length = len(password)
-hidden_password = "*" * password_length
-print(
-    f"{username}, your password, {hidden_password}, is {password_length} letters long"
-)
+# Raising Exceptions
+def divide(x, y):
+    """
+    Divides two numbers and raises an exception if the divisor is zero.
 
-# Lists
+    Args:
+        x (int or float): The numerator.
+        y (int or float): The denominator.
 
-li = [1, 2, 3, 4, 5]
-li2 = ["a", "b", "c"]
-li3 = [1, 2, "a", True]
+    Raises:
+        ValueError: If y is zero.
 
-# Data Structure
+    Returns:
+        int or float: The result of division.
+    """
+    if y == 0:
+        raise ValueError("Cannot divide by zero!")
+    return x / y
 
-amazon_cart = ["notebooks", "sunglasses"]
-print(amazon_cart[0])
-print(amazon_cart[1])
 
-# List Slicing
+print(divide(10, 2))  # Outputs 5.0
+# Uncomment the next line to see the exception raised
+# print(divide(10, 0))
 
-amazon_cart = ["notebooks", "sunglasses"]
-print(amazon_cart[0:2])
-amazon_cart[0] = "laptop"
-print(amazon_cart)
-new_cart = amazon_cart[:]
-new_cart[0] = "gum"
-print(new_cart)
-print(amazon_cart)
+# 7. File I/O
+"""
+Reading from and writing to files is essential for persistent data storage.
 
-# Matrix
+More on file I/O:
+https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+"""
 
-matrix = [[1, 2, 3], [2, 4, 6], [7, 8, 9]]
-print(matrix[0][1])
+# Writing to a File
+with open("output.txt", "w") as file:
+    file.write("Hello, World!")  # Writes "Hello, World!" to the file
 
-# List Methods
+# Reading from a File
+with open("output.txt", "r") as file:
+    content = file.read()  # Reads the content of the file
+    print(content)  # Outputs the content: "Hello, World!"
 
-basket = [1, 2, 3, 4, 5]
-print(len(basket))
+# 8. Object-Oriented Programming (OOP)
+"""
+OOP is a programming paradigm based on the concept of objects. Python supports classes and inheritance.
 
-# Adding
+More on OOP in Python:
+https://docs.python.org/3/tutorial/classes.html
+"""
 
-basket.append(100)
-new_list = basket
-print(basket)
-print(new_list)
-basket.insert(4, 100)
-print(basket)
-basket.extend([100, 101])
-print(basket)
 
-# Removing
+# Class Definition
+class Person:
+    """
+    Represents a person.
 
-basket.pop()
-print(basket)
-basket.pop(0)
-print(basket)
-basket.remove(4)
-print(basket)
-new_list = basket.pop(4)
-print(new_list)
-basket.clear()
-print(basket)
+    Attributes:
+        name (str): The name of the person.
+        age (int): The age of the person.
+    """
 
-# Index
+    def __init__(self, name, age):
+        self.name = name  # Initializes the name attribute
+        self.age = age  # Initializes the age attribute
 
-basket = ["a", "b", "c", "d", "e"]
-print(basket.index("d"))
-print("d" in basket)
-print("x" in basket)
-print("i" in "hi my name is Ian")
-print(basket.count("d"))
-# Exercise:
-basket = ["Banana", "Apples", "Oranges", "Blueberries"]
-basket.remove("Banana")
-basket.pop()
-basket.append("Kiwi")
-basket.insert(0, "Apples")
-print(basket.count("Apples"))
-basket.clear()
-print(basket)
+    def greet(self):
+        """
+        Greets the person with their name and age.
 
-# List Methods 2
+        Returns:
+            str: Greeting message.
+        """
+        return f"Hi, my name is {self.name} and I am {self.age} years old."
 
-basket = ["a", "x", "b", "c", "d", "e", "d"]
-basket.sort()
-print(basket)
-print(sorted(basket))
-new_basket = basket[:]
-new_basket.sort()
-print(new_basket)
-basket.reverse()
-print(basket)
 
-# Common List Patterns
+person = Person("Alice", 30)
+print(person.greet())  # Outputs the greeting message
 
-basket = ["a", "x", "b", "c", "d", "e", "d"]
-basket.sort()
-basket.reverse()
-print(basket[::-1])
-print(basket)
-print(list(range(1, 100)))
-print(list(range(100)))
-sentence = " "
-new_sentence = sentence.join(["hi", "my", "name", "is", "JOJO"])
-print(new_sentence)
-new_sentence = " ".join(["hi", "my", "name", "is", "JOJO"])
-print(new_sentence)
+
+# Inheritance
+class Student(Person):
+    """
+    Represents a student, which is a subclass of Person.
+
+    Attributes:
+        student_id (str): The student ID.
+    """
+
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)  # Calls the constructor of the base class
+        self.student_id = student_id  # Initializes the student_id attribute
+
+    def greet(self):
+        """
+        Greets the student with their name and student ID.
+
+        Returns:
+            str: Greeting message with student ID.
+        """
+        return f"Hi, I am {self.name}, a student with ID {self.student_id}."
+
+
+student = Student("Bob", 22, "S12345")
+print(student.greet())  # Outputs the greeting message with student ID
+
+# 9. Libraries and Packages
+"""
+Python has a rich ecosystem of libraries and packages for various tasks.
+
+For more on Python libraries:
+https://docs.python.org/3/tutorial/modules.html
+"""
+
+# Using a Library
+import numpy as np
+
+array = np.array([1, 2, 3])  # Creates a numpy array
+print(array)  # Outputs the numpy array: [1 2 3]
+
+# 10. Advanced Data Structures
+"""
+Advanced data structures include linked lists, trees, and heaps. Python's built-in structures
+are often sufficient, but custom implementations can be useful.
+
+Learn more about data structures:
+https://docs.python.org/3/tutorial/datastructures.html
+"""
+
+
+# Linked List Example (Simple Implementation)
+class Node:
+    """
+    Represents a node in a linked list.
+
+    Attributes:
+        value (Any): The value stored in the node.
+        next (Node or None): The next node in the list.
+    """
+
+    def __init__(self, value):
+        self.value = value  # Node's value
+        self.next = None  # Pointer to the next node
+
+
+class LinkedList:
+    """
+    Represents a linked list.
+
+    Attributes:
+        head (Node or None): The head of the linked list.
+    """
+
+    def __init__(self):
+        self.head = None  # Initializes the head of the linked list
+
+    def append(self, value):
+        """
+        Appends a new node with the given value to the end of the list.
+
+        Args:
+            value (Any): The value to append.
+        """
+        new_node = Node(value)  # Creates a new node
+        if not self.head:
+            self.head = new_node  # If the list is empty, set head to the new node
+            return
+        last = self.head
+        while last.next:
+            last = last.next  # Traverse to the end of the list
+        last.next = new_node  # Append the new node
+
+    def display(self):
+        """
+        Displays the linked list.
+        """
+        current = self.head
+        while current:
+            print(current.value, end=" -> ")  # Print the node's value
+            current = current.next
+        print("None")  # End of list
+
+
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
+linked_list.display()  # Outputs: 1 -> 2 -> 3 -> None
+
+# Heap Example (Using heapq)
+import heapq
+
+heap = []
+heapq.heappush(heap, 3)  # Pushes 3 onto the heap
+heapq.heappush(heap, 1)  # Pushes 1 onto the heap
+heapq.heappush(heap, 2)  # Pushes 2 onto the heap
+
+print(heapq.heappop(heap))  # Pops and prints the smallest item: 1
+print(heapq.heappop(heap))  # Pops and prints the next smallest item: 2
+print(heapq.heappop(heap))  # Pops and prints the last item: 3
+
+# 11. Concurrency and Parallelism
+"""
+Concurrency and parallelism involve executing multiple tasks simultaneously. Python provides
+threading and multiprocessing modules for this purpose.
+
+More on concurrency and parallelism:
+https://docs.python.org/3/library/concurrency.html
+"""
+
+# Threading
+import threading
+
+
+def print_numbers():
+    """
+    Prints numbers from 0 to 4 in a separate thread.
+    """
+    for i in range(5):
+        print(i)
+
+
+thread = threading.Thread(target=print_numbers)
+thread.start()  # Starts the thread
+thread.join()  # Waits for the thread to finish
+
+# Multiprocessing
+from multiprocessing import Process
+
+
+def print_numbers():
+    """
+    Prints numbers from 0 to 4 in a separate process.
+    """
+    for i in range(5):
+        print(i)
+
+
+process = Process(target=print_numbers)
+process.start()  # Starts the process
+process.join()  # Waits for the process to finish
+
+print("Done")  # Indicates that multiprocessing is complete
+
+"""
+For further reading and exploration, visit the Python documentation:
+https://docs.python.org/3/
+"""
